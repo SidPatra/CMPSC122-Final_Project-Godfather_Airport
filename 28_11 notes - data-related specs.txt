@@ -1,0 +1,42 @@
+Linked Lists needed:
+- Dynamic Array of strings
+- Stats
+- Waiting to takeoff
+- In the air
+- Refueling
+
+Node(Airplane) characteristics:
+- int action [departure (0) or arrival (1)]
+- int refueling [not refueling (0) or refeuling (1)]
+- int people
+- float cargo
+- bool grandchild (T is there is a grandchild)
+- int waittime
+- *next and *prev
+
+Stats (when user inputs P):
+- float avgDep
+- float avgLand
+// don't save above info
+- total timeWaited // numLandWait+numAirWait
+- int numcrashes
+- int numLandWait
+- int numAirWait
+- int numDep
+- int numArr
+- int numpplSafe
+- int numpplDead
+- int numGCDead // 0+= grandchild
+- int numGCSafe // 0+= grandchild
+- float avgGCWait // not stored.
+- int totalGCWait // += this.waitTime * this.grandchild
+- float cargoSafe 
+- float cargoDead 
+- float totalTime 
+- int totalGCWait
+
+Ask Reggio: are we sorting it by time, or will it be sorted for us?
+
+Prioritize:
+1. Grandchildren
+2. Low fuel
