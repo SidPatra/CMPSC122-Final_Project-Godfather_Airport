@@ -17,16 +17,6 @@
 using namespace std;
 
 
-/* Name: element
-** Purpose: a structure to contain each element of the link list and what it links to.
-** The parts of the structure are: value, which is the content of that piece of the array,
-** *nextElement, which is a pointer to the next element
-** and *prevElement, which is a pointer to the previous element.
-*/
-struct element {
-	int value;
-	element *nextElement, *prevElement;
-};
 
 /* Name: LinkList
 ** Purpose: Create a dynamic array class that will be able to store and manipulate the array as per the user's
@@ -36,6 +26,17 @@ struct element {
 */
 class LinkList {
 private:
+	/* Name: element
+	** Purpose: a structure to contain each element of the link list and what it links to.
+        ** The parts of the structure are: value, which is the content of that piece of the array,
+        ** *nextElement, which is a pointer to the next element
+        ** and *prevElement, which is a pointer to the previous element.
+        */
+	struct element {
+	int value;
+	element *nextElement, *prevElement;
+	};
+	
 	element *firstElement = nullptr;     // pointer to the first element of the link list, initializes to null
 	element *lastElement = nullptr;      // pointer to the last element of the link list, initializes to null
 	int n = 0;                               // length of the array
