@@ -1,0 +1,7 @@
+D,0,D,100,300,500000.00,N // Data, At time 0, Departure 100 units of fuel, 300 people, 500,000.00 cargo, No Grand
+D, 0,D,90,25,500.00,Y // Data, At time 0, Departure 90 units of fuel, 25 people, 500.00 cargo, Grandchild
+P // Print command. Print the current statistics
+W // Wait for carriage return
+D,0,A,3,300,2500,Y // Data, At time 0, Arrival 3 units of fuel, 300 people, 2500.00 cargo, Grandchild
+D,1,A,2,300,2500,Y // Data, At time 1, Arrival 2 units of fuel, 300 people, 2500.00 cargo, Grandchild
+D,3,A,2,300,2500,N // Data, At time 3, Arrival 2 units of fuel, 300 people, 2500.00 cargo, No Grandchild
