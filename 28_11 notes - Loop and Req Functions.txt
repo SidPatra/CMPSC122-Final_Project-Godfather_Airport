@@ -20,4 +20,4 @@ Functions:
 - checkAirFuel() // checks for crash/check if it crashes. This might be the hardest one.
 - checkRefuel // handle in read input
 - decAirfuel() // decrements time left for plane in the air
-- incWaitTime() // shit forgot to note down what exactly this was
+- incWaitTime() // increments wait time
