@@ -37,7 +37,7 @@ Stats (when user inputs P):
 
 Ask Reggio: are we sorting it by time, or will it be sorted for us?
 
-Prioritize:
+Prioritize - basically nested if conditions(?):
 1. Grandchildren
 2. Cargo
 3. Random citizens
