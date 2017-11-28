@@ -39,4 +39,5 @@ Ask Reggio: are we sorting it by time, or will it be sorted for us?
 
 Prioritize:
 1. Grandchildren
-2. Low fuel
+2. Cargo
+3. Random citizens
