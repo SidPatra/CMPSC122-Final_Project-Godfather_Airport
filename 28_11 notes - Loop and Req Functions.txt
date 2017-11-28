@@ -1,0 +1,23 @@
+Algorithm/Prime Loop structure:
+How to tell if program should be running or not
+
+getline(file, input)
+for (int t=0; !(file.eof)&&listsempty;t++)
+{
+	while ((input.length>1) && (stoi(input[2])==t))
+	{
+		// process input here
+	}
+	// decisions + other algorithm stuff per turn
+}
+print(stats)
+
+global var4state
+
+Functions:
+- printstats()
+- decRefuel() // decriments time left for the refuel
+- checkAirFuel() // checks for crash/check if it crashes. This might be the hardest one.
+- checkRefuel // handle in read input
+- decAirfuel() // decrements time left for plane in the air
+- incWaitTime() // shit forgot to note down what exactly this was
