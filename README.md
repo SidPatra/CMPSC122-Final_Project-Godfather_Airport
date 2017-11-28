@@ -35,18 +35,19 @@ Input specifications:
 - Special - character (Y or N depending on whether there is a 'grandchild' on board)
 
 Stats to keep in mind:
-• Your program should process the input file and perform the requested action.
-• You should keep the following statistics, and display after the file has been
+- Your program should process the input file and perform the requested action.
+- You should keep the following statistics, and display after the file has been
 processed or on command:
-  • Average Take off wait time
-  • Average landing wait time
-  • Number of plan crash
-  • Number of plans departing
-  • Number of planes arriving
-  • Number of people that landed safely
-  • Number of people killed
-  • Number of Grandchildren killed
-  • Average wait time for a grandchild Arriving or departing. (Dead grandchildren not included)
-  • Amount of cargo that landed safely
-  • Amount of destroyed Cargo
-  • Amount of time it takes to process a input file
+  - Average Take off wait time
+  - Average landing wait time
+  - Number of plan crash
+  - Number of plans departing
+  - Number of planes arriving
+  - Number of people that landed safely
+  - Number of people killed
+  - Number of Grandchildren killed
+  - Average wait time for a grandchild Arriving or departing. (Dead grandchildren not included)
+  - Amount of cargo that landed safely
+  - Amount of destroyed Cargo
+  - Amount of time it takes to process a input file
+
