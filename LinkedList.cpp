@@ -239,39 +239,26 @@ public:
 		}
 	}
 
-	// Name:		LinkedList::size()
-	// Purpose:		This function prints the size of the LinkedList
+	// Name:		LinkedList::getFirst()
+	// Purpose:		This function returns a pointer to the first node
+	//				of the LinkedList
 	// Inputs:		None
-	// Outputs:		the size of the array
-	void LinkedList::size()
+	// Outputs:		Pointer to first node in the list
+	Node* LinkedList::getFirst()
 	{
-		cout << endl << "Size:\t" << sizeNum << endl;
+		return first;
 	}
 
-	// Name:		LinkedList::print()
-	// Purpose:		This function prints the values in the LinkedList
+	// Name:		LinkedList::getLast()
+	// Purpose:		This function returns a pointer to the last node
+	//				of the LinkedList
 	// Inputs:		None
-	// Outputs:		The LinkedList values
-	void LinkedList::print()
+	// Outputs:		Pointer to last node in the list
+	Node* LinkedList::getLast()
 	{
-		if (first == nullptr)
-		{
-			cout << endl << "The List is Empty." << endl;
-		}
-		else
-		{
-			cout << endl;
-
-			Node* currentPtr = first;
-			while (currentPtr != nullptr)
-			{
-				cout << " " << currentPtr->value << " ";
-
-				currentPtr = currentPtr->next;
-			}
-			cout << endl;
-		}
+		return last;
 	}
+
 
 	// Name:		LinkedList::getSize()
 	// Purpose:		This function returns the size of the LinkedList
@@ -285,16 +272,20 @@ public:
 private:
 	struct Node
 	{
-
-		int value;
+		int action;		// 0 for departing, 1 for landing
+		int refueling;	// 0 for not refueling, 1-9 for time left while refueling
+		int people;		// Number of people onboard
+		float cargo;	// Value of cargo onboard
+		int waitTime;	// Time plane has spent waiting
+		int fuelCap;	// Fuel capacity of the plane (The initial fuel of the plane)
 		Node* next;
 		Node* prev;
 
-		// Name:	LinkedList::Node:Node(intx, Node* p, Node* n)
+		// Name:	LinkedList::Node:Node( Node* p, Node* n)
 		// Purpose:	Initializes values for the Node
-		// Inputs:	x = value, p = prev, n = next
+		// Inputs:	Node* p = prev, Node* n = next
 		// Outputs:	None
-		Node(int x, Node* p, Node* n)
+		Node( Node* p, Node* n)
 		{
 			value = x;
 			next = n;
