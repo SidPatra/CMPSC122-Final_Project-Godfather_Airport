@@ -2,7 +2,6 @@
 // Author:		Donavan Keen
 // Purpose:		This class holds a List of integers to create a dynamic
 //				array.
-// Limitations:	This class only can only store integer values.
 class LinkedList
 {
 public:
