@@ -10,8 +10,9 @@ Node(Airplane) characteristics:
 - int refueling [not refueling (0) or refeuling (1)]
 - int people
 - float cargo
-- bool grandchild (T is there is a grandchild)
-- int waittime
+- bool grandChild (T is there is a grandchild)
+- int waitTime
+- int fuelCap
 - *next and *prev
 
 Stats (when user inputs P):
@@ -19,13 +20,13 @@ Stats (when user inputs P):
 - float avgLand
 // don't save above info
 - total timeWaited // numLandWait+numAirWait
-- int numcrashes
+- int numCrashes
 - int numLandWait
 - int numAirWait
 - int numDep
 - int numArr
-- int numpplSafe
-- int numpplDead
+- int numPplSafe
+- int numPplDead
 - int numGCDead // 0+= grandchild
 - int numGCSafe // 0+= grandchild
 - float avgGCWait // not stored.
