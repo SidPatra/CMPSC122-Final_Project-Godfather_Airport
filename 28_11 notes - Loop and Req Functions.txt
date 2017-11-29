@@ -18,6 +18,7 @@ Functions:
 - printstats()
 - decRefuel() // decriments time left for the refuel
 - checkAirFuel() // checks for crash/check if it crashes. This might be the hardest one.
+- checkGroundFuel
 - checkRefuel // handle in read input
-- decAirfuel() // decrements time left for plane in the air
-- incWaitTime() // increments wait time
+- decFuel() // decrements time left for all planes not refueling.
+- incWaitTime() // increments wait time 
