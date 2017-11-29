@@ -2,6 +2,7 @@
 // Author:		Donavan Keen
 // Purpose:		This class holds a List of integers to create a dynamic
 //				array.
+// Limitations:	This class only can only store integer values.
 class LinkedList
 {
 public:
@@ -142,13 +143,13 @@ public:
 			// It is here as protection, from here, we check if the value was
 			// deleted and print that the value was not found and not deleted.
 		}
-		else if (first->value == x)
+		else if (first->id == x)
 		{
 			this->removeFront();
 			deleted = true;
 
 		}
-		else if (last->value == x)
+		else if (last->id == x)
 		{
 			this->removeBack();
 			deleted = true;
@@ -157,7 +158,7 @@ public:
 		{
 			while (!deleted && i < sizeNum - 1)
 			{
-				if (currentPtr->value == x)
+				if (currentPtr->id == x)
 				{
 
 					(currentPtr->prev)->next = currentPtr->next;
@@ -175,10 +176,6 @@ public:
 				}
 				i++;
 			}
-		}
-		if (!deleted)
-		{
-			cout << endl << "Element not found and not deleted." << endl;
 		}
 	}
 
@@ -271,6 +268,7 @@ public:
 private:
 	struct Node
 	{
+		int id;			// id number to keep track of plane (used for deletion specifically)
 		int action;		// 0 for departing, 1 for landing
 		int refueling;	// 0 for not refueling, 1-9 for time left while refueling
 		int people;		// Number of people onboard
