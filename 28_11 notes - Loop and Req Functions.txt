@@ -18,6 +18,8 @@ Functions:
 - printstats()
 - decRefuel() // decriments time left for the refuel
 - checkAirFuel() // checks for crash/check if it crashes. This might be the hardest one.
+- crash( LinkedList::Node plane ) // This method will be called by checkAirFuel and is responsible for deleting plane
+				  // and deallocating memory.
 - checkGroundFuel
 - checkRefuel // handle in read input
 - decFuel() // decrements time left for all planes not refueling.
