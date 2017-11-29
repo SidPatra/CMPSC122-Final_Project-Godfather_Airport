@@ -1,46 +1,11 @@
 // Name:		LinkedList
+// Author:		Donavan Keen
 // Purpose:		This class holds a List of integers to create a dynamic
 //				array.
 // Limitations:	This class only can only store integer values.
 class LinkedList
 {
 public:
-	LinkedList();
-	~LinkedList();
-	void addElementFront(int x);
-	void addElementBack(int x);
-	void insertElement(int location, int x);
-	void deleteElement(int x);
-	void removeFront();
-	void removeBack();
-	void size();
-	void print();
-	int getSize();
-	
-
-private:
-	struct Node
-	{
-
-		int value;
-		Node* next;
-		Node* prev;
-
-		// Name:	LinkedList::Node:Node(intx, Node* p, Node* n)
-		// Purpose:	Initializes values for the Node
-		// Inputs:	x = value, p = prev, n = next
-		// Outputs:	None
-		Node(int x, Node* p, Node* n)
-		{
-			value = x;
-			next = n;
-			prev = p;
-		}
-	};
-	Node* first;
-	Node* last;
-	int sizeNum = 0;
-
 	// Name:		LinkedList::LinkedList()
 	// Purpose:		This function acts as a constructor for the LinkedList class.
 	//				it creates the first node.
@@ -316,4 +281,27 @@ private:
 	{
 		return sizeNum;
 	}
+
+private:
+	struct Node
+	{
+
+		int value;
+		Node* next;
+		Node* prev;
+
+		// Name:	LinkedList::Node:Node(intx, Node* p, Node* n)
+		// Purpose:	Initializes values for the Node
+		// Inputs:	x = value, p = prev, n = next
+		// Outputs:	None
+		Node(int x, Node* p, Node* n)
+		{
+			value = x;
+			next = n;
+			prev = p;
+		}
+	};
+	Node* first;
+	Node* last;
+	int sizeNum = 0;
 };
