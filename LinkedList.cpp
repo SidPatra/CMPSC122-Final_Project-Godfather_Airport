@@ -128,7 +128,7 @@ public:
 
 	// Name:		LinkedList::deleteElement(int x)
 	// Purpose:		This function deletes an element with the value passed to it
-	// Inputs:		integer, value to be deleted
+	// Inputs:		integer, id to be deleted
 	// Outputs:		None
 	// Limitations:	This function only deletes the first value found to match the input
 	void LinkedList::deleteElement(int x)
