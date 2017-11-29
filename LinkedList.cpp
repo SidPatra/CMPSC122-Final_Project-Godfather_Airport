@@ -287,7 +287,6 @@ private:
 		// Outputs:	None
 		Node( Node* p, Node* n)
 		{
-			value = x;
 			next = n;
 			prev = p;
 		}
