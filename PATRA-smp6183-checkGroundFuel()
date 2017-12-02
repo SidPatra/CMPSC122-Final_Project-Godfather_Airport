@@ -9,10 +9,10 @@ void checkGroundFuel()
   if plane.fuel < 20
   {
     // send the plane to key consisting of planes atrefuel
-    atRefuel.addElementBack(node plane) // is this how I am supposed to do this?
+    refuel(plane) // is this how I am supposed to do this?
   }
   else
   { // send the plane to the linkedList of planes onGround (to be in air later(?))
-    onGround.addElementBack(node plane)
+    onGround.addElementBack(plane)
   }
 }
