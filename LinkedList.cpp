@@ -3,6 +3,10 @@
 // Purpose:		This class holds a List of integers to create a dynamic
 //				array.
 // Limitations:	This class only can only store integer values.
+// Name:		LinkedList
+// Author:		Donavan Keen
+// Purpose:		This class holds a List of integers to create a dynamic
+//				array.
 class LinkedList
 {
 public:
@@ -44,7 +48,7 @@ public:
 	// Purpose:		This function adds an element to the front of the LinkedList
 	// Inputs:		integer, value to be added
 	// Outputs:		None
-	void LinkedList::addElementFront(int x)
+	void LinkedList::addElementFront(LinkedList::Node plane)
 	{
 		if (first == nullptr)
 		{
@@ -275,6 +279,7 @@ private:
 		float cargo;	// Value of cargo onboard
 		int waitTime;	// Time plane has spent waiting
 		int fuelCap;	// Fuel capacity of the plane (The initial fuel of the plane)
+		int grandChild; // 0 for no grandChild, 1 for grandChild
 		Node* next;
 		Node* prev;
 
@@ -282,7 +287,7 @@ private:
 		// Purpose:	Initializes values for the Node
 		// Inputs:	Node* p = prev, Node* n = next
 		// Outputs:	None
-		Node( Node* p, Node* n)
+		Node(Node* p, Node* n)
 		{
 			next = n;
 			prev = p;
