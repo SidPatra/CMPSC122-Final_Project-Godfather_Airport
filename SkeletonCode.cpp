@@ -47,7 +47,7 @@ LinkedList atRefuel;		// Planes refueling
 void print() {}
 
 // Name:		decRefuel()
-// Author:		
+// Author:    Matt Dawson		
 // Purpose:		This function decrements the refueling attribute of all planes in LinkedList atRefuel,
 //				and moves planes with refueling value 0 (after the decrement) to LinkedList onGround
 // Inputs:		None
@@ -55,14 +55,14 @@ void print() {}
 void decRefuel() {}
 
 // Name:		decFuel()
-// Author:		
+// Author:		Erin Bevilacqua
 // Purpose:		This function decrements the fuel of all planes (land and air)
 // Inputs:		None
 // Outputs:		None
 void decFuel() {}
 
 // Name:		checkGroundFuel()
-// Author:		
+// Author:		Sid Patra
 // Purpose:		This function checks the fuel of every plane on the ground and calls refuel()
 //				if the fuel iis below 20.
 // Inputs:		None
@@ -70,15 +70,17 @@ void decFuel() {}
 void checkGroundFuel() {}
 
 // Name:		refuel( LinkedList::Node* plane )
-// Author:		
+// Author:		Donavan Keen
 // Purpose:		This function sets the refueling attribute of the plane to 20 and moves it from the onGround list
 //				to the atRefuel list.
 // Inputs:		Pointer to plane that needs refueled
 // Outputs:		None
-void refuel(LinkedList::Node* plane) {}
+void refuel(LinkedList::Node* plane) {
+
+}
 
 // Name:		checkAirFuel()
-// Author:		
+// Author:		Nikhil Nayyar
 // Purpose:		This function checks the fuel of every plane in the air and calls crash() 
 //				if the fuel is 0.
 // Inputs:		None
@@ -86,35 +88,35 @@ void refuel(LinkedList::Node* plane) {}
 void checkAirFuel() {}
 
 // Name:		crash( LinkedList::Node* plane )
-// Author:		
+// Author:		Cole Cugini
 // Purpose:		This function adjusts statistics and calls the delete function for the plane that has crashed
 // Inputs:		Pointer to plane that has crashed
 // Outputs:		None
 void crash(LinkedList::Node* plane) {}
 
 // Name:		incWaitTime()
-// Author:		
+// Author:		Erin Bevilacqua
 // Purpose:		This function increments waitTime attribute of every plane in every list
 // Inputs:		None
 // Outputs:		None
 void incWaitTime() {}
 
 // Name:		takeOff( LinkedList::Node* plane )
-// Author:		
+// Author:		Nikhil Nayyar
 // Purpose:		This function adjusts statistics and calls the delete function for the plane that will take off
 // Inputs:		Pointer to plane to take off
 // Outputs:		None
 void takeOff(LinkedList::Node* plane) {}
 
 // Name:		land( LinkedList::Node* plane )
-// Author:		
+// Author:		Nikhil Nayyar
 // Purpose:		This function adjusts statistics and calls the delete function for the plane that will land
 // Inputs:		Pointer to plane to land
 // Outputs:		None
 void land(LinkedList::Node* plane) {}
 
 // Name:		main()
-// Author:		
+// Author:		Everyone
 // Purpose:		This function holds the main logic of the program and calls the appropriate
 //				functions regarding algorithm decisions
 // Inputs:		None
