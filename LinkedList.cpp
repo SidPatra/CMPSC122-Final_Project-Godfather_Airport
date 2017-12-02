@@ -1,15 +1,34 @@
 // Name:		LinkedList
 // Author:		Donavan Keen
-// Purpose:		This class holds a List of integers to create a dynamic
-//				array.
-// Limitations:	This class only can only store integer values.
-// Name:		LinkedList
-// Author:		Donavan Keen
-// Purpose:		This class holds a List of integers to create a dynamic
-//				array.
+// Purpose:		This class holds a List of plane structures
 class LinkedList
 {
 public:
+	struct Node
+	{
+		int id;			// id number to keep track of plane (used for deletion specifically)
+		int action;		// 0 for departing, 1 for landing
+		int refueling;	// 0 for not refueling, 1-9 for time left while refueling
+		int people;		// Number of people onboard
+		float cargo;	// Value of cargo onboard
+		int waitTime;	// Time plane has spent waiting
+		int fuel;		// Fuel left in the plane
+		int fuelCap;	// Fuel capacity of the plane (The initial fuel of the plane)
+		int grandChild; // 0 for no grandChild, 1 for grandChild
+		Node* next;
+		Node* prev;
+
+		// Name:	LinkedList::Node:Node( Node* p, Node* n)
+		// Purpose:	Initializes values for the Node
+		// Inputs:	Node* p = prev, Node* n = next
+		// Outputs:	None
+		Node(Node* p, Node* n)
+		{
+			next = n;
+			prev = p;
+		}
+	};
+
 	// Name:		LinkedList::LinkedList()
 	// Purpose:		This function acts as a constructor for the LinkedList class.
 	//				it creates the first node.
@@ -44,90 +63,25 @@ public:
 		sizeNum = 0;
 	}
 
-	// Name:		LinkedList::addElementFront(int x)
-	// Purpose:		This function adds an element to the front of the LinkedList
-	// Inputs:		integer, value to be added
-	// Outputs:		None
-	void LinkedList::addElementFront(LinkedList::Node plane)
-	{
-		if (first == nullptr)
-		{
-			first = new Node(x, nullptr, nullptr);
-			last = first;
-		}
-		else
-		{
-			Node* tmpPtr = first;
-			first = new Node(x, nullptr, tmpPtr);	// Adding the element to the front
-
-			tmpPtr->prev = first;		//assigning pointing second node prev to first node
-		}
-		sizeNum++;
-	}
-
 	// Name:		LinkedList::addElementBack(int x)
 	// Purpose:		This function adds an element to the bacl of the LinkedList
 	// Inputs:		integer, value to be added
 	// Outputs:		None
-	void LinkedList::addElementBack(int x)
+	void LinkedList::addElementBack(LinkedList::Node* plane)
 	{
 		if (first == nullptr)
 		{
-			first = new Node(x, nullptr, nullptr);
+			first = plane;
 			last = first;
 		}
 		else
 		{
 			Node* tmpPtr = last;
-			last = new Node(x, tmpPtr, nullptr);	// Adding the element to the front
-
-			tmpPtr->next = last;		//assigning pointing second node prev to first node
+			last = plane;				// Adding the element to the back
+			last->prev = tmpPtr;		// Assigns new node's prev to old last
+			tmpPtr->next = last;		// Assigns old last's next to new node 
 		}
 		sizeNum++;
-	}
-
-	// Name:		LinkedList::insertElement(int location, int x)
-	// Purpose:		This function adds an element to the front of the LinkedList
-	// Inputs:		int location, the index to insert at, int x, the value to be inserted
-	// Outputs:		None
-	void LinkedList::insertElement(int location, int x)
-	{
-		// If the insert location is larger than any index in the 
-		// list, we can just add the element to the back of the list.
-		// This also works in the case that there are no elements
-		// in the list.
-		if (location >= sizeNum)
-		{
-			this->addElementBack(x);
-		}
-		else if (location == 0)
-		{
-			this->addElementFront(x);
-		}
-		else
-		{
-			Node* currentPtr = first;
-
-			for (int i = 0; i <= location; i++)
-			{
-				if (i == location)
-				{
-					Node* tmpPtr = currentPtr;
-					Node* prevPtr = tmpPtr->prev;
-
-					currentPtr = new Node(x, prevPtr, tmpPtr);	// Create new element at index
-
-					tmpPtr->prev = currentPtr;				// Reassign next node's prev
-					(currentPtr->prev)->next = currentPtr;	// Reassign prev node's next
-
-					sizeNum++;
-				}
-				else
-				{
-					currentPtr = currentPtr->next;
-				}
-			}
-		}
 	}
 
 	// Name:		LinkedList::deleteElement(int x)
@@ -191,7 +145,6 @@ public:
 	{
 		if (sizeNum == 0)
 		{
-			cout << endl << "The List is Empty." << endl;
 		}
 		else if (sizeNum == 1)
 		{
@@ -270,30 +223,6 @@ public:
 	}
 
 private:
-	struct Node
-	{
-		int id;			// id number to keep track of plane (used for deletion specifically)
-		int action;		// 0 for departing, 1 for landing
-		int refueling;	// 0 for not refueling, 1-9 for time left while refueling
-		int people;		// Number of people onboard
-		float cargo;	// Value of cargo onboard
-		int waitTime;	// Time plane has spent waiting
-		int fuelCap;	// Fuel capacity of the plane (The initial fuel of the plane)
-		int fuel; 	// Fuel remaining
-		int grandChild; // 0 for no grandChild, 1 for grandChild
-		Node* next;
-		Node* prev;
-
-		// Name:	LinkedList::Node:Node( Node* p, Node* n)
-		// Purpose:	Initializes values for the Node
-		// Inputs:	Node* p = prev, Node* n = next
-		// Outputs:	None
-		Node(Node* p, Node* n)
-		{
-			next = n;
-			prev = p;
-		}
-	};
 	Node* first;
 	Node* last;
 	int sizeNum = 0;
