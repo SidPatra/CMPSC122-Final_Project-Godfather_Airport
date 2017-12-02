@@ -279,6 +279,7 @@ private:
 		float cargo;	// Value of cargo onboard
 		int waitTime;	// Time plane has spent waiting
 		int fuelCap;	// Fuel capacity of the plane (The initial fuel of the plane)
+		int fuel; 	// Fuel remaining
 		int grandChild; // 0 for no grandChild, 1 for grandChild
 		Node* next;
 		Node* prev;
