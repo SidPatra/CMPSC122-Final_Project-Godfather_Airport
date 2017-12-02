@@ -1,0 +1,18 @@
+// Name:		checkGroundFuel()
+// Author:		Sid Patra
+// Purpose:		This function checks the fuel of every plane on the ground and calls refuel()
+//				if the fuel is below 20.
+// Inputs:		None
+// Outputs:		None
+void checkGroundFuel() 
+{
+  if plane.fuel < 20
+  {
+    // send the plane to key consisting of planes atrefuel
+    atRefuel.addElementBack(node plane) // is this how I am supposed to do this?
+  }
+  else
+  { // send the plane to the linkedList of planes onGround (to be in air later(?))
+    onGround.addElementBack(node plane)
+  }
+}
