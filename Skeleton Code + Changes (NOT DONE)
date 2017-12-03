@@ -326,11 +326,30 @@ void decRefuel() {
 }
 
 // Name:		decFuel()
-// Author:		Erin Bevilacqua
-// Purpose:		This function decrements the fuel of all planes (land and air)
+// Author:		Matthew Dawson
+// Purpose:		This function decrements the fuel of all planes in the land and air (excluding those in refuel) 
 // Inputs:		None
 // Outputs:		None
-void decFuel() {}
+void decFuel() {
+
+	LinkedList::Node* currentPtr;
+
+	// Traverse the onGround LinkedList and decrement each plane's fuel by one. This occurs every time period. 
+
+	currentPtr = onGround.getFirst();
+	while (currentPtr != nullptr) {
+		currentPtr->fuel--;
+		currentPtr = currentPtr->next;
+	}
+
+	// Traverse the inAir LinkedList and decrement each plane's fuel by one. This occurs every time period. 
+
+	currentPtr = inAir.getFirst();
+	while (currentPtr != nullptr) {
+		currentPtr->fuel--;
+		currentPtr = currentPtr->next;
+	}
+}
 
 // Name:		checkGroundFuel()
 // Status: Done
@@ -394,11 +413,30 @@ void checkAirFuel() {
 void crash(LinkedList::Node* plane) {}
 
 // Name:		incWaitTime()
-// Author:		Erin Bevilacqua
+// Author:      Erin Bevilacqua
 // Purpose:		This function increments waitTime attribute of every plane in every list
 // Inputs:		None
 // Outputs:		None
-void incWaitTime() {}
+void incWaitTime() {
+    LinkedList::Node* temp;
+
+    // Traverse through inAir, onGround, and atRefuel and increment waitTime by one.
+    temp = inAir.getFirst;
+    while (temp!=nullptr) {
+        temp->waitTime++;
+        temp = temp->next;
+    }
+    temp = onGround.getFirst;
+    while (temp!=nullptr) {
+        temp->waitTime++;
+        temp = temp->next;
+    }
+    temp = atRefuel.getFirst;
+    while (temp!=nullptr) {
+        temp->waitTime++;
+        temp = temp->next;
+    }
+}
 
 // Name:		takeOff( LinkedList::Node* plane )
 // Author:		Nikhil Nayyar
