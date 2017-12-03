@@ -20,6 +20,7 @@ public:
 		int id;			// id number to keep track of plane (used for deletion specifically)
 		int action;		// 0 for departing, 1 for landing
 		int refueling;	// 0 for not refueling, 1-9 for time left while refueling
+		int score = 0;
 		int people;		// Number of people onboard
 		float cargo;	// Value of cargo onboard
 		int waitTime;	// Time plane has spent waiting
@@ -38,6 +39,7 @@ public:
 			id = values->id;
 			action = values->action;
 			refueling = values->refueling;
+			score = values->score;
 			people = values->people;
 			carge = values->cargo;
 			waitTime = values->waitTime;
@@ -253,7 +255,8 @@ private:
 
 
 // Global variables for keeping statistics
-int totalTimeWaited = 0;	// Total time all planes have waited
+int totalTimeWaitedAir = 0;		// Total time waited for planes in the air
+int totalTimeWaitedGround = 0;		// Total time waited for planes on the ground
 int numCrashes = 0;			// Number of planes that have crashed
 int numLandWait = 0;		// Number of planes waiting on land (onGround.getSize())
 int numAirWait = 0;			// Number of planes waiting in air (inAir.getSize())
