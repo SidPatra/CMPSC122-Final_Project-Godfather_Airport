@@ -4,15 +4,15 @@
 //				if the fuel is below 20.
 // Inputs:		None
 // Outputs:		None
-void checkGroundFuel() 
+void checkGroundFuel()
 {
-  LinkedList::Node* currentPtr = onGround.getFirst();
-  while( currentPtr != nullptr )
-  {
-    if( currentPtr->fuel < 20 )
-    {
-      // send the plane to key consisting of planes atrefuel
-      refuel(currentPtr); // is this how I am supposed to do this?
-    }
-  }
+	LinkedList::Node* currentPtr = onGround.getFirst();
+	while (currentPtr != nullptr)
+	{
+		if (currentPtr->fuel < 20)
+		{
+			// send the plane to key consisting of planes atrefuel
+			refuel(currentPtr); // is this how I am supposed to do this?
+		}
+	}
 }
