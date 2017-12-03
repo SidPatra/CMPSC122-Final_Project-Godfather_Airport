@@ -1,6 +1,6 @@
 void takeOff(plane) {
 	numDep += 1;
-	totalTimeWaited += plane->waitTime
-	totalGCWait += totalTimeWaited * (plane->grandChild);
+	numLandWait += plane->waitTime
+	totalGCWait += numLandWait * (plane->grandChild);
 	onGround.deleteElement(plane->id);
 }
