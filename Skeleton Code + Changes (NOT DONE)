@@ -328,7 +328,9 @@ void checkGroundFuel()
 // Inputs:		Pointer to plane that needs refueled
 // Outputs:		None
 void refuel(LinkedList::Node* plane) {
-
+	LinkedList::Node* temp = new LinkedList::Node(plane);
+	onGround.deleteElement(plane->id);
+	atRefuel.addElementBack(temp);
 }
 
 // Name:		checkAirFuel()
@@ -366,6 +368,16 @@ void takeOff(LinkedList::Node* plane) {}
 // Inputs:		Pointer to plane to land
 // Outputs:		None
 void land(LinkedList::Node* plane) {}
+
+// Name:		calcScore( LinkedList::Node* plane )
+// Author:		
+// Purpose:		Calculates score based on weights GC + 1000, Cargo: (int) cargo * .001, People: + people
+//				divided by fuel.
+// Inputs:		Pointer to plane whose score is being calculated
+// Outputs:		None
+void calcScore(LinkedList::Node* plane) {
+	plane->score = ( 1000 * plane->grandChild + (int)plane->cargo*.001 + plane->people ) / plane->fuel;
+}
 
 // Name:		main()
 // Author:		Everyone
