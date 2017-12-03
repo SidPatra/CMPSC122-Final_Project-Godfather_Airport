@@ -326,30 +326,11 @@ void decRefuel() {
 }
 
 // Name:		decFuel()
-// Author:		Matthew Dawson
-// Purpose:		This function decrements the fuel of all planes in the land and air (excluding those in refuel) 
+// Author:		Erin Bevilacqua
+// Purpose:		This function decrements the fuel of all planes (land and air)
 // Inputs:		None
 // Outputs:		None
-void decFuel() {
-
-	LinkedList::Node* currentPtr;
-
-	// Traverse the onGround LinkedList and decrement each plane's fuel by one. This occurs every time period. 
-
-	currentPtr = onGround.getFirst();
-	while (currentPtr != nullptr) {
-		currentPtr->fuel--;
-		currentPtr = currentPtr->next;
-	}
-
-	// Traverse the inAir LinkedList and decrement each plane's fuel by one. This occurs every time period. 
-
-	currentPtr = inAir.getFirst();
-	while (currentPtr != nullptr) {
-		currentPtr->fuel--;
-		currentPtr = currentPtr->next;
-	}
-}
+void decFuel() {}
 
 // Name:		checkGroundFuel()
 // Status: Done
@@ -410,33 +391,22 @@ void checkAirFuel() {
 // Purpose:		This function adjusts statistics and calls the delete function for the plane that has crashed
 // Inputs:		Pointer to plane that has crashed
 // Outputs:		None
-void crash(LinkedList::Node* plane) {}
+void crash(LinkedList::Node* plane){
+
+    numCrashes++;				// Number of planes that have crashed
+    numPplDead+=plane->people;			// Number of people who have died
+    numGCDead+=plane->grandChild;		// Number of grandchildren who have died
+    cargoDead-=plane->cargo;			// Value of cargo that crashed
+    LinkedList.deleteElement(plane->id);
+
+}
 
 // Name:		incWaitTime()
-// Author:      Erin Bevilacqua
+// Author:		Erin Bevilacqua
 // Purpose:		This function increments waitTime attribute of every plane in every list
 // Inputs:		None
 // Outputs:		None
-void incWaitTime() {
-    LinkedList::Node* temp;
-
-    // Traverse through inAir, onGround, and atRefuel and increment waitTime by one.
-    temp = inAir.getFirst;
-    while (temp!=nullptr) {
-        temp->waitTime++;
-        temp = temp->next;
-    }
-    temp = onGround.getFirst;
-    while (temp!=nullptr) {
-        temp->waitTime++;
-        temp = temp->next;
-    }
-    temp = atRefuel.getFirst;
-    while (temp!=nullptr) {
-        temp->waitTime++;
-        temp = temp->next;
-    }
-}
+void incWaitTime() {}
 
 // Name:		takeOff( LinkedList::Node* plane )
 // Author:		Nikhil Nayyar
@@ -467,7 +437,7 @@ void land(LinkedList::Node* plane) {
 
 // Name:		calcScore( LinkedList::Node* plane )
 // Author:		
-// Purpose:		Calculates score based on weights GC + 1000, Cargo: (int) cargo * .001, People: + people
+// Purpose:		Calculates score based on weights GC * 1000, Cargo: (int) cargo * .001, People: + people
 //				divided by fuel.
 // Inputs:		Pointer to plane whose score is being calculated
 // Outputs:		None
