@@ -301,12 +301,29 @@ void print() {
 }
 
 // Name:		decRefuel()
-// Author:    Matt Dawson		
+// Author:    		Erin Bevilacqua		
 // Purpose:		This function decrements the refueling attribute of all planes in LinkedList atRefuel,
 //				and moves planes with refueling value 0 (after the decrement) to LinkedList onGround
 // Inputs:		None
 // Outputs:		None
-void decRefuel() {}
+void decRefuel() {
+	LinkedList::Node* currentPtr = atRefuel.getFirst();
+	while( currentPtr != nullptr )
+	{
+		currentPtr->refueling--;
+		if( currentPtr->refueling == 0 )
+		{
+			LinkedList::Node* temp = new Node( currentPtr );
+			temp->fuel = temp->fuelCap;
+			onGround.addElementBack( temp );
+			currentPtr = currentPtr->next;
+			atRefuel.deleteElement(temp->id);
+		}
+		else
+		{
+			currentPtr = currentPtr->next;
+		}
+}
 
 // Name:		decFuel()
 // Author:		Erin Bevilacqua
