@@ -9,6 +9,7 @@ public:
 		int id;			// id number to keep track of plane (used for deletion specifically)
 		int action;		// 0 for departing, 1 for landing
 		int refueling;	// 0 for not refueling, 1-9 for time left while refueling
+		int score;		// Score calculation t compare for action
 		int people;		// Number of people onboard
 		float cargo;	// Value of cargo onboard
 		int waitTime;	// Time plane has spent waiting
@@ -27,6 +28,7 @@ public:
 			id = values->id;
 			action = values->action;
 			refueling = values->refueling;
+			score = values->score;
 			people = values->people;
 			carge = values->cargo;
 			waitTime = values->waitTime;
