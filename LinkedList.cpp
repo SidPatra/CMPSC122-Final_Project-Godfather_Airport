@@ -17,15 +17,27 @@ public:
 		int grandChild; // 0 for no grandChild, 1 for grandChild
 		Node* next;
 		Node* prev;
-
+		
 		// Name:	LinkedList::Node:Node( Node* p, Node* n)
 		// Purpose:	Initializes values for the Node
 		// Inputs:	Node* p = prev, Node* n = next
 		// Outputs:	None
-		Node(Node* p, Node* n)
+		Node(Node* values)
 		{
-			next = n;
-			prev = p;
+			id = values->id;
+			action = values->action;
+			refueling = values->refueling;
+			people = values->people;
+			carge = values->cargo;
+			waitTime = values->waitTime;
+			fuel = values->fuel;
+			fuelCap = values->fuelCap;
+			grandChild = values->grandChild
+			next = nullptr;
+			prev = nullptr;
+		}
+		Node()
+		{
 		}
 	};
 
