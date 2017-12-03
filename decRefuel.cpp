@@ -1,9 +1,9 @@
 // Name:		decRefuel()
-// Author:
+// Author:      Erin Bevilacqua
 // Purpose:		This function decrements the refueling attribute of all planes in LinkedList atRefuel,
-//				    and moves planes with refueling value 0 (after the decrement) to LinkedList onGround.
-//            Also, it changes fuel to 100...not sure if that was part of this function or what value we actually
-//            wanted to change fuel to but that's the function now.
+//				and moves planes with refueling value 0 (after the decrement) to LinkedList onGround.
+//              Also, it changes fuel to 100...not sure if that was part of this function or what value we actually
+//              wanted to change fuel to but that's the function now.
 // Inputs:		None
 // Outputs:		None
 void decRefuel() {
