@@ -132,7 +132,6 @@ public:
 			// This block just ensures we don't try to dereference a nullptr.
 			// It is here as protection, from here, we check if the value was
 			// deleted and print that the value was not found and not deleted.
-			cout << "NOT DELETED MUHFUCKA" << endl;
 		}
 
 		else if (first->id == x)
@@ -602,9 +601,13 @@ void main() {
 								break;
 							case 2:
 								if (token == "A")
+								{
 									newPlane->action = 1;
+								}
 								else if (token == "D")
+								{
 									newPlane->action = 0;
+								}
 								break;
 							case 3:
 								newPlane->fuel = stoi(token);
@@ -636,11 +639,11 @@ void main() {
 					{
 						inAir.addElementBack(newPlane);
 					}
-					else
+					else if (newPlane->action == 0)
 					{
 						if (newPlane->fuel < 20)
 						{
-							cout << endl<< "BAD INPUT YOU LOSE!" << endl;
+							cout << endl << "\tBAD INPUT" << endl << endl;
 							goto STOP;
 						}
 						onGround.addElementBack(newPlane);
@@ -755,7 +758,7 @@ void main() {
 				{
 					takeOff(takeAction[i]);
 				}
-				else
+				else if (takeAction[i]->action == 1)
 				{
 					land(takeAction[i]);
 				}
