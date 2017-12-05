@@ -523,11 +523,20 @@ void main() {
 	{
 		getline(file, line);
 		line += ",";
+		string planeTime = "";
+		int timeFindCounter = 2;
+		char timeFindChar = line.at(timeFindCounter);
+		while (timeFindChar != ',')
+		{
+			planeTime += timeFindChar;
+			timeFindCounter++;
+			timeFindChar = line.at(timeFindCounter);
+		}
 		while (!(file.eof()) || brokeLoop || ((inAir.getSize() + onGround.getSize() + atRefuel.getSize()) != 0 ))
 		{
 			// This while loop handles reading the input and performing the proper action.
 			// If the time of action for a plane is greater than current time, 
-			while ((line.length() == 2 || (line.at(2) - '0') <= time))
+			while ((line.length() == 2 || stoi(planeTime) <= time))
 			{
 				if (file.eof() && !(brokeLoop))
 				{
@@ -538,6 +547,19 @@ void main() {
 				{
 					getline(file, line);
 					line += ",";
+					if (line.length() > 2)
+					{
+						planeTime = "";
+						timeFindCounter = 2;
+						timeFindChar = line.at(timeFindCounter);
+						while (timeFindChar != ',')
+						{
+							planeTime += timeFindChar;
+							timeFindCounter++;
+							timeFindChar = line.at(timeFindCounter);
+						}
+					}
+					
 				}
 				else
 				{
@@ -554,44 +576,47 @@ void main() {
 					cout << endl << "Waiting...";
 					cin.get();
 				}
-				else if ((line.at(2) - '0') > time)
+				else if (stoi(planeTime) > time)
 				{
 					brokeLoop = true;
 					break;
 				}
-				else if ((line.at(2) - '0') == time)
+				else if (stoi(planeTime) == time)
 				{
 					LinkedList::Node* newPlane = new LinkedList::Node();
 					newPlane->id = totalPlanes;
 					totalPlanes++;
 
-					string dataLine = line.substr(4);
 					int tokenNum = 0;
 					string token = "";
 
-					for (char c : dataLine)
+					for (char c : line)
 					{
 						if (c == ',')
 						{
 							switch (tokenNum)
 							{
 							case 0:
+								break;
+							case 1:
+								break;
+							case 2:
 								if (token == "A")
 									newPlane->action = 1;
 								else if (token == "D")
 									newPlane->action = 0;
 								break;
-							case 1:
+							case 3:
 								newPlane->fuel = stoi(token);
 								newPlane->fuelCap = newPlane->fuel;
 								break;
-							case 2:
+							case 4:
 								newPlane->people = stoi(token);
 								break;
-							case 3:
+							case 5:
 								newPlane->cargo = stof(token);
 								break;
-							case 4:
+							case 6:
 								if (token == "Y")
 									newPlane->grandChild = 1;
 								else if (token == "N")
